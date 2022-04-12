@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useRef, Fragment, useState, useEffect, useMemo, useCallback } from 'react'
 import { findDOMNode } from 'react-dom'
 import PropTypes from 'prop-types'
@@ -74,22 +75,18 @@ export const FilesList = ({
 
   const keyHandler = (e) => {
     const focusedFile = files.find(el => el.name === focused)
-
     // Disable keyboard controls if fetching files
     if (filesIsFetching) {
       return
     }
-
     if (e.key === 'Escape') {
       setSelected([])
       setFocused(null)
       return listRef.current.forceUpdateGrid()
     }
-
     if (e.key === 'F2' && focused !== null) {
       return onRename([focusedFile])
     }
-
     if (e.key === 'Delete' && selected.length > 0) {
       return onRemove(selectedFiles)
     }
@@ -138,7 +135,7 @@ export const FilesList = ({
   useEffect(() => {
     if (keyHandler) {
       document.addEventListener('keyup', keyHandler)
-    }    
+    }
     return () => document.removeEventListener('keyup', keyHandler)
   }, [keyHandler])
 
