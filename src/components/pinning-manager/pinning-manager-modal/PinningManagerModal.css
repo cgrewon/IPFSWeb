@@ -1,0 +1,10 @@
+.pinningManagerModalContainer {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    justify-content: center;
+}
+
+.pinningManagerModalItem {
+    margin-right: 20px;
+}
