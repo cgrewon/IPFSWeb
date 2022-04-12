@@ -136,9 +136,11 @@ export const FilesList = ({
   }
 
   useEffect(() => {
-    document.addEventListener('keyup', keyHandler)
+    if (keyHandler) {
+      document.addEventListener('keyup', keyHandler)
+    }    
     return () => document.removeEventListener('keyup', keyHandler)
-  }, [])
+  }, [keyHandler])
 
   useEffect(() => {
     const fileList = mergeRemotePinsIntoFiles(files, remotePins)

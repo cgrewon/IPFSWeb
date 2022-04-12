@@ -48,8 +48,10 @@ const Preview = (props) => {
   }, [buffer, content, read, size])
 
   useEffect(() => {
-    loadContent()
-  }, [])
+    if (loadContent) {
+      loadContent()
+    }
+  }, [loadContent])
 
   const src = `${availableGatewayUrl}/ipfs/${cid}?filename=${encodeURIComponent(name)}`
   const className = 'mw-100 mt3 bg-snow-muted pa2 br2 border-box'
